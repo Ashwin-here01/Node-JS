@@ -16,6 +16,6 @@
   "main": "01_Hello.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node 01_Hello.js"
+    "start": "node Hello.js"
   }
 }
