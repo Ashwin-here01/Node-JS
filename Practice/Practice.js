@@ -1,4 +1,5 @@
 const file = require("fs");
+const http = require("http");
 
 /*
 const {sum, sub, mul, div} = require("./mathFn");
@@ -26,4 +27,27 @@ file.readFile("./TextFiles/01.txt", "utf-8", (err, result) => {
 
 // file.unlinkSync("./TextFiles/02CopiedFile.txt");
 
+
+const myServer = http.createServer((req, res) => {
+    console.log("Request Received");
+    console.log(req.url);
+    res.write("Under maintenace\n");
+    res.end("My name is Harry!");
+});
+
+myServer.listen(8000, () => {
+    console.log("Server started");
+});
 */
+
+const newServer = http.createServer((req, res) => {
+    console.log("Request Recieved");
+    console.log(req.headers);
+    console.log(req.url);
+    res.write("This is a response\n");
+    res.end("The response is ended");
+});
+
+newServer.listen(8001, () => {
+    console.log("Server started");
+});
