@@ -1,5 +1,6 @@
 const file = require("fs");
 const http = require("http");
+const url = require("url");
 
 /*
 const {sum, sub, mul, div} = require("./mathFn");
@@ -38,7 +39,6 @@ const myServer = http.createServer((req, res) => {
 myServer.listen(8000, () => {
     console.log("Server started");
 });
-*/
 
 const newServer = http.createServer((req, res) => {
     console.log("Request Recieved");
@@ -50,4 +50,36 @@ const newServer = http.createServer((req, res) => {
 
 newServer.listen(8001, () => {
     console.log("Server started");
+});
+
+*/
+
+const myServer = http.createServer((req, res) => {
+  if (req.url === "/favicon.ico") return res.end();
+
+  const log = `${Date.now()} ${req.url} Request Recieved\n`;
+
+  const myURL = url.parse(req.url, true);
+
+  console.log(myURL);
+
+  file.appendFile("TextFiles/log.txt", log, () => {
+    switch (myURL.pathname) {
+      case "/":
+        res.end("Home Page");
+        break;
+      case "/about":
+        res.end(`Hi ${myURL.query.name}, Your Roll No. is ${myURL.query.roll}`);
+        break;
+      case "/contact":
+        res.end("E-Mail: abc@gmail.com");
+        break;
+      default:
+        res.end("404 Page not found");
+    }
+  });
+});
+
+myServer.listen(9000, () => {
+  console.log("Server Started");
 });
