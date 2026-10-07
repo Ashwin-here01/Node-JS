@@ -16,3 +16,5 @@
 1788767571833: /search?search_query=Javascript+Apna+College+Tutorial Request Recieved
 1788767596045: /search?search_query=Javascript+Apna+College+Tutorial Request Recieved
 1788768626563: /search?search_query=Javascript+Apna+College+Tutorial Request Recieved
+1791360558850: /search?search_query=Javascript+Apna+College+Tutorial Request Recieved
+1791360559490: /search?search_query=Javascript+Apna+College+Tutorial Request Recieved

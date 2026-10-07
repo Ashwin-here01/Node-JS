@@ -52,7 +52,6 @@ newServer.listen(8001, () => {
     console.log("Server started");
 });
 
-*/
 
 const myServer = http.createServer((req, res) => {
   if (req.url === "/favicon.ico") return res.end();
@@ -81,5 +80,17 @@ const myServer = http.createServer((req, res) => {
 });
 
 myServer.listen(9000, () => {
+  console.log("Server Started");
+});
+
+*/
+
+const newServer = http.createServer((req, res) => {
+  console.log("New Request Recieved");
+  console.log(req.url);
+  res.end("Response!");
+});
+
+newServer.listen(1000, () => {
   console.log("Server Started");
 });
