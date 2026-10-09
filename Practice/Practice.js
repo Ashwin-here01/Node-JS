@@ -1,6 +1,7 @@
 const file = require("fs");
 const http = require("http");
 const url = require("url");
+const express = require("express");
 
 /*
 const {sum, sub, mul, div} = require("./mathFn");
@@ -83,7 +84,6 @@ myServer.listen(9000, () => {
   console.log("Server Started");
 });
 
-*/
 
 const newServer = http.createServer((req, res) => {
   console.log("New Request Recieved");
@@ -93,4 +93,16 @@ const newServer = http.createServer((req, res) => {
 
 newServer.listen(1000, () => {
   console.log("Server Started");
+});
+*/
+
+const app = express();
+
+app.get("/", (req, res) => {
+  console.log("Request Recieved");
+  return res.send("Hello from Express!");
+});
+
+app.listen(3000, () => {
+  console.log("Server Started!");
 });
