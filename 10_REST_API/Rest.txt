@@ -1,0 +1,20 @@
+AKA RestFull API
+
+It is the rules and best practices to be followed while handling the request-response from server to client.
+
+1. Server - Client Architecture :
+    Server and client should not depend on each other
+        - If the data sent by the server is sure to be run on a browser, its a good practice to send it in HTML format.
+        - If the client is unknown (alexa, android, ios etc.) then the data should be in JSON format so the frontend can render it on its own.
+
+2. Always respect HTTP Methods :
+    GET, PSOT, PUT, PATCH, DELETE
+    Use specific HTTP method for the specific work.
+        -GET /User - Read user data and return
+        -POST /User - Create a new User
+        -PATCH /User - Update the user
+
+        BUT:
+        -POST /CreateUser - To create user
+        -POST /UpdateUser - To update user
+        Here we should use PATCH method to update the user rather than using POST.
