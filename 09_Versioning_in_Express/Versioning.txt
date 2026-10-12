@@ -1,0 +1,25 @@
+Version - ^5.2.1
+
+Four things in it - 
+    ^ (Carrot symbol)
+    5 (First digit)
+    2 (Second digit)
+    1 (Third digit)
+
+1. Third digit (1) - Minor updates (Optional to download)
+
+2. Second digit (2) - Recommended bug fixes (Security fix)
+
+3. First digit (5) - Major release / change / breaking update
+    It is not recommended to download for an existing code. The old code might or might not work properly after this major update.
+
+4. Carrot symbol (^) (^4.18.2) - Lock the first digit (major update) and update all the recommended and minor updates.
+
+    Tilde symbol (~) (~4.18.2) - Lock both the first and second digits (Major and recommended updates). Only update the minor fixes
+
+    No symbol (4.18.2) means it'll NOT install any update on its own.
+
+
+To download a specific version of express we can run a command in the terminal like 
+    npm install express@SPECIFIC_VERSION
+e.g. npm install express@4.18.2
