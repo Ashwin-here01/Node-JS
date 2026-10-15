@@ -98,8 +98,8 @@ newServer.listen(1000, () => {
 
 const app = express();
 
-app.get("/", (req, res) => {
-  console.log("Request Recieved");
+app.get("/api/users/:id", (req, res) => {
+  console.log(req.params);
   return res.send("Hello from Express!");
 });
 
