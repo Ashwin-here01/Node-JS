@@ -1,5 +1,5 @@
 const express = require("express");
-const users = require("./MOCK_DATA.json");
+let users = require("./MOCK_DATA.json");
 const fs = require("fs");
 
 const app = express();
@@ -36,31 +36,26 @@ app
     .patch((req, res) => {
         const body = req.body;
         const id = Number(req.params.id);
-        fs.readFile("./MOCK_DATA.json", "utf-8", (err, data) => {
+
+        for(bodyKey in body) {
+            for(userKey in users[id-1]) {
+                if(bodyKey === userKey) {
+                    (users[id-1])[userKey] = body[bodyKey];
+                }
+            }
+        }
+        fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err) => {
             if(err) {
                 return res.json({response : "error"});
             }
-            let parsedData = JSON.parse(data);
-            for(bodyKey in body) {
-                for(dataKey in parsedData[id-1]) {
-                    if(bodyKey === dataKey) {
-                        (parsedData[id-1])[dataKey] = body[bodyKey];
-                    }
-                }
-            }
-            fs.writeFile("./MOCK_DATA.json", JSON.stringify(parsedData), (err) => {
-                if(err) {
-                    return res.json({response : "error"});
-                }
-                return res.json({response : "success"});
-            });
+            return res.json({response : "success"});
         });
     })
 
     .delete((req, res) => {
         const id = Number(req.params.id);
-        const filteredUser = users.filter((user) => {return user.id !== id});
-        fs.writeFile("./MOCK_DATA.json", JSON.stringify(filteredUser), (err) => {
+        users = users.filter((user) => {return user.id !== id});
+        fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err) => {
             if(err) {
                 return res.json({response : "error"});
             }
