@@ -1,0 +1,1 @@
+HTTP Headers - Meta-data of request and response. Additional data about request and response
