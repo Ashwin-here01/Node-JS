@@ -2,6 +2,9 @@ const file = require("fs");
 const http = require("http");
 const url = require("url");
 const express = require("express");
+const mongoose = require("mongoose");
+const { kStringMaxLength } = require("buffer");
+const { timeStamp } = require("console");
 
 /*
 const {sum, sub, mul, div} = require("./mathFn");
@@ -94,7 +97,6 @@ const newServer = http.createServer((req, res) => {
 newServer.listen(1000, () => {
   console.log("Server Started");
 });
-*/
 
 const app = express();
 
@@ -106,3 +108,38 @@ app.get("/api/users/:id", (req, res) => {
 app.listen(3000, () => {
   console.log("Server Started!");
 });
+*/
+
+mongoose
+  .connect("mongodb://127.0.0.1:27017/school-practice")
+  .then(() => console.log("Database connected"))
+  .catch((err) => console.log("Error connecting Database:", err));
+
+const studentSchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    rollNo: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
+    class: {
+      type: String,
+      required: true,
+    },
+    phoneNo: {
+      type: Number,
+      required: true,
+    },
+    marks: {
+      type: Number,
+      required: true,
+    },
+  },
+  { timeStamp: true },
+);
+
+const Student = mongoose.model("student", studentSchema);
