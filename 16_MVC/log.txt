@@ -1,0 +1,6 @@
+1794887652721: ::1 GET /api/users
+1794887677316: ::1 GET /api/users/6adde8f3c930bbed8ebcc2f2
+1794887737805: ::1 POST /api/users
+1794887870212: ::1 GET /api/users/6adde8f3c930bbed8ebcc2f2
+1794887879617: ::1 GET /api/users/
+1794887941990: ::1 DELETE /api/users/6afbd0393c6afff864742bd8

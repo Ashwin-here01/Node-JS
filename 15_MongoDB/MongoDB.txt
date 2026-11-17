@@ -3,3 +3,5 @@ Schema - Define the structure
     Using Model we do CRUD operations
 
 Database → Collection → Document
+
+CRUD - Create Read Update Delete
